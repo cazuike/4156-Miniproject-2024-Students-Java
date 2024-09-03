@@ -25,6 +25,7 @@ public class IndividualProjectApplication implements CommandLineRunner {
    * @param args A {@code String[]} of any potential
    *              runtime arguments
    */
+
   public static void main(String[] args) {
     SpringApplication.run(IndividualProjectApplication.class, args);
   }

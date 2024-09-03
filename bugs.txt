@@ -1,0 +1,31 @@
+Bugs found:
+
+Course.java
+	- enrollStudent()
+		- always returns false
+		- can be incremented even when it is impossible to enroll a student
+	- dropStudent()
+		- always returns false
+		- can be decremented even when it is impossible to remove a student
+	- isCourseFull()
+		- returns the opposite of what it should
+	- getInstructorName
+		- returns course location
+	- getCourseLocation
+		- returns instructor name
+	- enrolledStudenCount should be 0
+Department.java
+	- toString()
+		is "result.toString()" instead of result.toString()
+	- number of majors could be negative, from the dropmajor function
+	- number of majors was initially negative
+	- departmentChair was "this.departmentChair", should not have "". 
+RouteController.java
+	-retrieveDepartment has swapped httpStatus codes
+		- not_found for ok, and vice versa
+	-retrieveCourse - a correct response would return forbidden
+	-getMajorCtFromDept returns a negative value
+	-getMajorCtFromDept uses wrong status code for not found, uses FORBIDDEN
+	-findCourseTime would return "some time" instead of the actual course time"
+	-handleException would return with OK status instead of internal error
+6 from Course.java, 4 from Department.java, 5 bugs from RouteController.java - 15 bugs in total! (hopefully?)
