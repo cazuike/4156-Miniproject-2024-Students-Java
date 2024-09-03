@@ -48,7 +48,7 @@ public class RouteControllerTest {
   @Test
   public void departmentNotFoundTest() throws Exception {
     mockMvc.perform(get("/retrieveDept").param("deptCode", "NBA"))
-                .andExpect(status().isOk())
+                .andExpect(status().isNotFound())
                 .andExpect(content().string("Department Not Found"));
   }
 }
