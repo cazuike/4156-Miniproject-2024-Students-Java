@@ -13,6 +13,14 @@ import java.io.Serializable;
  */
 public class Course implements Serializable {
 
+  @Serial
+  private static final long serialVersionUID = 123456L;
+  private final int enrollmentCapacity;
+  private int enrolledStudentCount;
+  private String courseLocation;
+  private String instructorName;
+  private String courseTimeSlot;
+
   /**
    * Constructs a new Course object with the given parameters. Initial count starts at 0.
    *
@@ -98,11 +106,4 @@ public class Course implements Serializable {
     return enrollmentCapacity > enrolledStudentCount;
   }
 
-  @Serial
-  private static final long serialVersionUID = 123456L;
-  private final int enrollmentCapacity;
-  private int enrolledStudentCount;
-  private String courseLocation;
-  private String instructorName;
-  private String courseTimeSlot;
 }

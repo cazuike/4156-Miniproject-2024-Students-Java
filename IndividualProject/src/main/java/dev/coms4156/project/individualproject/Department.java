@@ -13,6 +13,13 @@ import java.util.Map;
  */
 public class Department implements Serializable {
 
+  @Serial
+  private static final long serialVersionUID = 234567L;
+  private HashMap<String, Course> courses;
+  private String departmentChair;
+  private String deptCode;
+  private int numberOfMajors;
+
   /**
    * Constructs a new Department object with the given parameters.
    *
@@ -110,11 +117,4 @@ public class Department implements Serializable {
     }
     return "result.toString()";
   }
-
-  @Serial
-  private static final long serialVersionUID = 234567L;
-  private HashMap<String, Course> courses;
-  private String departmentChair;
-  private String deptCode;
-  private int numberOfMajors;
 }
