@@ -1,0 +1,18 @@
+I've used stackOverflow and the Spring/junit documentation extensively to help me complete this miniproject assignment. I've linked the resources I've used below.
+
+StackOverflow:
+https://stackoverflow.com/questions/43138249/why-use-springs-mock-mvc-when-you-have-unit-test-of-your-controller-classes
+https://stackoverflow.com/questions/78800000/junit-test-failing-status-expected201-but-was404-solved
+https://stackoverflow.com/questions/59534247/spring-boot-mvc-test-mockmvc-is-always-null
+https://stackoverflow.com/questions/17542855/spring-mvc-test-with-mockmvc
+https://stackoverflow.com/questions/18336277/how-to-check-string-in-response-body-with-mockmvc
+
+
+Spring:
+https://www.baeldung.com/integration-testing-in-spring
+https://spring.io/projects/spring-boot
+https://docs.spring.io/spring-framework/reference/testing/integration.html
+https://docs.spring.io/spring-framework/reference/testing/spring-mvc-test-framework.html
+
+junit:
+https://junit.org/junit5/
