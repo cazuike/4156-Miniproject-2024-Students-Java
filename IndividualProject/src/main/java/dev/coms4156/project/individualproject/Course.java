@@ -1,11 +1,31 @@
 package dev.coms4156.project.individualproject;
 
-import java.io.*;
 
+import java.io.Serial;
+import java.io.Serializable;
+
+/**
+ * The Course class represents a course in education system (e.g college)
+ * It includes instructor's name, course location, time slot,
+ * and the maximum number of students that can enroll in the course.
+ * This class is serializable, allowing it to be stored and retrieved
+ * from a file or database. .
+ */
 public class Course implements Serializable {
+
+  @Serial
+  private static final long serialVersionUID = 123456L;
+  private final int enrollmentCapacity;
+  private int enrolledStudentCount;
+  private String courseLocation;
+  private String instructorName;
+  private String courseTimeSlot;
 
   /**
    * Constructs a new Course object with the given parameters. Initial count starts at 0.
+   *
+   * <p> This constructor initializes the course with the provided instructor name, course location,
+   * time slot, and capacity. </p>
    *
    * @param instructorName     The name of the instructor teaching the course.
    * @param courseLocation     The location where the course is held.
@@ -20,17 +40,17 @@ public class Course implements Serializable {
     this.enrolledStudentCount = 500;
   }
 
- /**
+  /**
    * Enrolls a student in the course if there is space available.
    *
    * @return true if the student is successfully enrolled, false otherwise.
    */
   public boolean enrollStudent() {
-   enrolledStudentCount++;
+    enrolledStudentCount++;
     return false;
   }
 
- /**
+  /**
    * Drops a student from the course if a student is enrolled.
    *
    * @return true if the student is successfully dropped, false otherwise.
@@ -57,7 +77,8 @@ public class Course implements Serializable {
 
 
   public String toString() {
-    return "\nInstructor: " + instructorName +  "; Location: "  + courseLocation +  "; Time: " + courseTimeSlot;
+    return "\nInstructor: " + instructorName +  "; Location: "  + courseLocation
+            +  "; Time: " + courseTimeSlot;
   }
 
 
@@ -85,11 +106,4 @@ public class Course implements Serializable {
     return enrollmentCapacity > enrolledStudentCount;
   }
 
-  @Serial
-  private static final long serialVersionUID = 123456L;
-  private final int enrollmentCapacity;
-  private int enrolledStudentCount;
-  private String courseLocation;
-  private String instructorName;
-  private String courseTimeSlot;
 }

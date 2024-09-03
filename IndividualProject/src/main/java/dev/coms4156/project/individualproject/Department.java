@@ -1,8 +1,10 @@
 package dev.coms4156.project.individualproject;
 
-import java.io.*;
-import java.util.*;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents a department within an educational institution.
@@ -10,6 +12,13 @@ import java.util.*;
  * courses offered, department chair, and number of majors.
  */
 public class Department implements Serializable {
+
+  @Serial
+  private static final long serialVersionUID = 234567L;
+  private HashMap<String, Course> courses;
+  private String departmentChair;
+  private String deptCode;
+  private int numberOfMajors;
 
   /**
    * Constructs a new Department object with the given parameters.
@@ -108,11 +117,4 @@ public class Department implements Serializable {
     }
     return "result.toString()";
   }
-
-  @Serial
-  private static final long serialVersionUID = 234567L;
-  private HashMap<String, Course> courses;
-  private String departmentChair;
-  private String deptCode;
-  private int numberOfMajors;
 }
