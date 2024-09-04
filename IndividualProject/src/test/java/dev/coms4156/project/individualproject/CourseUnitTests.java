@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
-
 /**
- * This class contains unit tests for Course.java
- * Unit tests involve setting up an environment for testing and conducting the
- * necessary tests to ensure functionality.
+ * This class contains unit tests for Course.java.
+ *
+ * <p> Unit tests involve setting up an environment for testing and conducting the
+ * necessary tests to ensure functionality. </p>
  */
 @SpringBootTest
 @ContextConfiguration
@@ -21,19 +21,21 @@ public class CourseUnitTests {
   /** The test course instance used for testing. */
   public static Course testCourse;
 
+  /** Sets up a test course for the various unit tests. */
   @BeforeEach
   public void setupCourseForTesting() {
     testCourse = new Course("Griffin Newbold",
             "417 IAB", "11:40-12:55", 250);
   }
 
-
+  /** Test the toString() method of Course. */
   @Test
   public void toStringTest() {
     String expectedResult = "\nInstructor: Griffin Newbold; Location: 417 IAB; Time: 11:40-12:55";
     assertEquals(expectedResult, testCourse.toString());
   }
 
+  /** Test the getter methods of Course. */
   @Test
   public void getterTest() {
     String expectedResult = "417 IAB";
@@ -46,6 +48,7 @@ public class CourseUnitTests {
     assertEquals(expectedResult, testCourse.getInstructorName());
   }
 
+  /** Test the setter methods of Course. */
   @Test
   public void setterTest() {
     String expectedResult = "451 CSB";
@@ -61,6 +64,7 @@ public class CourseUnitTests {
     assertEquals(expectedResult, testCourse.getInstructorName());
   }
 
+  /** Test the enrollStudents() and dropStudents() methods of Course. */
   @Test
   public void enrollStudentsTest() {
     int studentLimit = 250;

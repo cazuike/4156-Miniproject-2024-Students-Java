@@ -7,6 +7,7 @@ https://stackoverflow.com/questions/59534247/spring-boot-mvc-test-mockmvc-is-alw
 https://stackoverflow.com/questions/17542855/spring-mvc-test-with-mockmvc
 https://stackoverflow.com/questions/18336277/how-to-check-string-in-response-body-with-mockmvc
 
+I mainly used stackoverflow to understand how do I create tests, particularly for route controller. I also referenced the Spring documentation extensively. I ran into numerous issues when trying to make routecontroller tests and stackoverflow was excellent at unblocking me. I learned about mockmvc, @autowired for automatic dependency injection from both stackoverflow and the Spring Documentation, and about how to properly construct a test for checking that api endpoint works. More or less my main resources were the Spring Documentation and StackOverflow. 
 
 Spring:
 https://www.baeldung.com/integration-testing-in-spring
