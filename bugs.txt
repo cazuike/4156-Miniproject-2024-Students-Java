@@ -15,10 +15,9 @@ Course.java
 		- returns instructor name
 	- enrolledStudenCount should be 0
 Department.java
-	- toString()
-		is "result.toString()" instead of result.toString()
-	- number of majors could be negative, from the dropmajor function
-	- number of majors was initially negative
+	- toString() is "result.toString()" instead of result.toString()
+	- number of majors could be negative, from dropPersonFromMajor()
+	- getNumberOfMajors() returns a negative value
 	- departmentChair was "this.departmentChair", should not have "". 
 RouteController.java
 	-retrieveDepartment has swapped httpStatus codes
