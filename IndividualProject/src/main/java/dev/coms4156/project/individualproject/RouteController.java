@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 /**
  * This class contains all the API routes for the system.
  */
@@ -441,12 +439,15 @@ public class RouteController {
    * This method handles PATCH requests to change the time of a course identified by
    * department code and course code.If the course exists, its time is updated to the provided time.
    *
-   * @param deptCode                    the code of the department containing the course
-   * @param courseCode                  the code of the course to change the time for
-   * @param time                        the new time for the course
+   * @param deptCode       A {@code String} representing the department.
    *
-   * @return                            a ResponseEntity with a success message if the operation is
-   *                                    successful, or an error message if the course is not found
+   * @param courseCode     A {@code int} representing the course within the department.
+   *
+   * @param time           A {@code String} representing the new time for the course.
+   *
+   * @return               A {@code ResponseEntity} object containing an HTTP 200
+   *                       response with an appropriate message or the proper status
+   *                       code in tune with what has happened.
    */
   @PatchMapping(value = "/changeCourseTime", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> changeCourseTime(
@@ -480,12 +481,15 @@ public class RouteController {
    * department code and course code. If the course exists, its instructor is updated to the
    * provided instructor.
    *
-   * @param deptCode                  the code of the department containing the course
-   * @param courseCode                the code of the course to change the instructor for
-   * @param teacher                   the new instructor for the course
+   * @param deptCode       A {@code String} representing the department.
    *
-   * @return                          a ResponseEntity with a success message if the operation is
-   *                                  successful, or an error message if the course is not found
+   * @param courseCode     A {@code int} representing the course within the department.
+   *
+   * @param teacher        A {@code String} representing the new instructor for the course.
+   *
+   * @return                A {@code ResponseEntity} object containing an HTTP 200
+   *                        response with an appropriate message or the proper status
+   *                        code in tune with what has happened.
    */
   @PatchMapping(value = "/changeCourseTeacher", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> changeCourseTeacher(
@@ -520,7 +524,7 @@ public class RouteController {
    *
    * @param courseCode     A {@code int} representing the course within the department.
    *
-   * @param location         A {@code String} representing the potential location of the course.
+   * @param location       A {@code String} representing the potential location of the course.
    *
    * @return               A {@code ResponseEntity} object containing an HTTP 200
    *                       response with an appropriate message or the proper status
@@ -552,10 +556,16 @@ public class RouteController {
     }
   }
 
+  /**
+   * Provides exception handling for endpoint methods.
+   *
+   * @param e              A {@code String} representing the department.
+   *
+   * @return               A {@code ResponseEntity} object containing an HTTP 500
+   *                       response with an appropriate error message.
+   **/
   private ResponseEntity<?> handleException(Exception e) {
     System.out.println(e.toString());
     return new ResponseEntity<>("An Error has occurred", HttpStatus.INTERNAL_SERVER_ERROR);
   }
-
-
 }
