@@ -6,9 +6,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
@@ -32,11 +32,11 @@ public class RouteControllerTest {
    */
   @BeforeEach
   public void setUp() {
-    HashMap<String, Course> courses = new HashMap<>();
+    Map<String, Course> courses = new HashMap<>();
     courses.put("1004", new Course("Adam Cannon", "417 IAB", "11:40-12:55", 400));
     Department comsDept = new Department("COMS", courses, "Luka Doncic", 999);
 
-    HashMap<String, Department> departmentMapping = new HashMap<>();
+    Map<String, Department> departmentMapping = new HashMap<>();
     departmentMapping.put("COMS", comsDept);
 
     myFileDatabase = new MyFileDatabase(1, "./testdata.txt");
@@ -139,12 +139,15 @@ public class RouteControllerTest {
             .andExpect(content().string("The course meets at: 11:40-12:55"));
   }
 
-  /** Expects success message upon request. */
+  /** Expects success message upon request, confirms change. */
   @Test
   public void addMajorTest() throws Exception {
     mockMvc.perform(patch("/addMajorToDept").param("deptCode", "COMS"))
             .andExpect(status().isOk())
             .andExpect(content().string("Attribute was updated successfully"));
+    mockMvc.perform(get("/getMajorCountFromDept").param("deptCode", "COMS"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("There are: 1000 majors in the department"));
   }
 
   /** Expects success message upon request. */
@@ -174,7 +177,7 @@ public class RouteControllerTest {
             .andExpect(content().string("Attributed was updated successfully."));
   }
 
-  /** Sets enrollment to 10 and expects success message upon dropStudent request. */
+  /** Set enrollment to 10 and expects success message upon dropStudent request, confirm change. */
   @Test
   public void dropStudentAfterEnrollTest() throws Exception {
     mockMvc.perform(patch("/setEnrollmentCount").param("deptCode", "COMS")
@@ -188,7 +191,7 @@ public class RouteControllerTest {
             .andExpect(content().string("Student has been dropped."));
   }
 
-  /** Expects success message upon request. */
+  /** Expects success message upon request, confirms change. */
   @Test
   public void changeTimeTest() throws Exception {
     mockMvc.perform(patch("/changeCourseTime").param("deptCode", "COMS")
@@ -196,9 +199,13 @@ public class RouteControllerTest {
                     .param("time", "1:10-2:25"))
             .andExpect(status().isOk())
             .andExpect(content().string("Attributed was updated successfully."));
+    mockMvc.perform(get("/findCourseTime").param("deptCode", "COMS")
+                    .param("courseCode", "1004"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("The course meets at: 1:10-2:25"));
   }
 
-  /** Expects success message upon request. */
+  /** Expects success message upon request, confirms change. */
   @Test
   public void changeTeacherTest() throws Exception {
     mockMvc.perform(patch("/changeCourseTeacher").param("deptCode", "COMS")
@@ -206,9 +213,14 @@ public class RouteControllerTest {
                     .param("teacher", "Sunil Gulati"))
             .andExpect(status().isOk())
             .andExpect(content().string("Attributed was updated successfully."));
+    mockMvc.perform(get("/findCourseInstructor").param("deptCode", "COMS")
+                    .param("courseCode", "1004"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("Sunil Gulati is the instructor for"
+                    + " the course."));
   }
 
-  /** Expects success message upon request. */
+  /** Expects success message upon request, confirms change. */
   @Test
   public void changeLocationTest() throws Exception {
     mockMvc.perform(patch("/changeCourseLocation").param("deptCode", "COMS")
@@ -216,6 +228,11 @@ public class RouteControllerTest {
                     .param("location", "451 CSB"))
             .andExpect(status().isOk())
             .andExpect(content().string("Attributed was updated successfully."));
+    mockMvc.perform(get("/findCourseLocation").param("deptCode", "COMS")
+                    .param("courseCode", "1004"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("451 CSB is where the course "
+                    + "is located."));
   }
 
   /** Expects internal server error message upon request. */

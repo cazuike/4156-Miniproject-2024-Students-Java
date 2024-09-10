@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.HashMap;
+import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,8 +24,8 @@ public class DepartmentUnitTests {
   public static Department testDepartment;
 
   /** Provides a test course mapping used for testing. */
-  private static HashMap<String, Course> getTestCourseMapping() {
-    HashMap<String, Course> courses = new HashMap<>();
+  private static Map<String, Course> getTestCourseMapping() {
+    Map<String, Course> courses = new HashMap<>();
     Course coms1004 = new Course("Adam Cannon",
             "JOHN JAY",
             "11:40-12:55",
