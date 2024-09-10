@@ -43,6 +43,8 @@ MyFileDatabase method returns null, instead it now returns an empty map
 	- ReturnEmptyCollectionRatherThanNull:	Return an empty collection rather than null.
 In RouteController for @RequestParam removed "value" since there is only one parameter.
 	- UnnecessaryAnnotationValueElement:	Avoid the use of value in annotations when its the only element
+In RouteController, specified Locale.English for toLower/toUpper
+	- When doing a String.toLowerCase()/toUpperCase() call, use a Locale. 
 
 
 No changes to the names of functions as I believe they are aptly named. Refactoring could be done, but not mentioned in the requirements of the assignment.
