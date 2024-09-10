@@ -94,6 +94,7 @@ public class Course implements Serializable {
    *
    * @return a formatted string containing course info.
    */
+  @Override
   public String toString() {
     return "\nInstructor: " + instructorName +  "; Location: "  + courseLocation
             +  "; Time: " + courseTimeSlot;

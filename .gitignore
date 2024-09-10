@@ -24,3 +24,7 @@ hs_err_pid*
 replay_pid*
 
 .vscode
+
+.DS_Store
+IndividualProject/.DS_Store
+IndividualProject/data.txt

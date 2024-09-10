@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 public class IntegrationTests {
-  /** The test app and database instances used for testing. */
+  /** The test app and database instance used for testing. */
   @Autowired
   private IndividualProjectApplication app;
   private MyFileDatabase myFileDatabase;

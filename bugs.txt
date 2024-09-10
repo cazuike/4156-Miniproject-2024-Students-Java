@@ -1,4 +1,4 @@
-Bugs found:
+Dynamic Bugs found through testing:
 
 Course.java
 	- enrollStudent()
@@ -29,3 +29,20 @@ RouteController.java
 	-findCourseTime would return "some time" instead of the actual course time"
 	-handleException would return with OK status instead of internal error
 6 from Course.java, 4 from Department.java, 5 bugs from RouteController.java - 15 bugs in total! (hopefully?)
+
+Static Bugs - used PMD
+To utilize PMD, refer to the following and replace "source" with file of interest
+pmd check -d "source" -R rulesets/java/quickstart.xml -f text
+
+Static bugs:
+add @Override to the toString() methods of Course, Department, myFileDatabase
+	- MissingOverride:	The method 'toString()' is missing an @Override annotation.
+change HashMap to Map (in all 5 files if i correctly recall)
+	- LooseCoupling:	Avoid using implementation types like 'HashMap'; use the interface instead
+MyFileDatabase method returns null, instead it now returns an empty map
+	- ReturnEmptyCollectionRatherThanNull:	Return an empty collection rather than null.
+In RouteController for @RequestParam removed "value" since there is only one parameter.
+	- UnnecessaryAnnotationValueElement:	Avoid the use of value in annotations when its the only element
+
+
+No changes to the names of functions as I believe they are aptly named. Refactoring could be done, but not mentioned in the requirements of the assignment.
