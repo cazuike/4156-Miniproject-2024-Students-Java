@@ -28,7 +28,7 @@ public class Department implements Serializable {
                     int numberOfMajors) {
     this.courses = courses;
     this.departmentChair = departmentChair;
-    this.numberOfMajors = numberOfMajors;
+    this.numberOfMajors = Math.max(numberOfMajors, 0);
     this.deptCode = deptCode;
   }
 
