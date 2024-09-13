@@ -32,7 +32,7 @@ public class Course implements Serializable {
     this.courseLocation = courseLocation;
     this.instructorName = instructorName;
     this.courseTimeSlot = timeSlot;
-    this.enrollmentCapacity = capacity;
+    this.enrollmentCapacity = Math.max(capacity, 0);
     this.enrolledStudentCount = 0;
   }
 
@@ -133,7 +133,7 @@ public class Course implements Serializable {
    *  @param count  The new count of enrolled students.
    */
   public void setEnrolledStudentCount(int count) {
-    this.enrolledStudentCount = count;
+    this.enrolledStudentCount = Math.max(0, count);
   }
 
   /** Returns a boolean indicating if the course is full.
